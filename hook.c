@@ -10,6 +10,21 @@ int  keypress(int keycode, t_mlx *mlx)
   return 0;
 }
 
+int close_window(t_mlx *mlx)
+{
+    clean_mlx(mlx);
+    exit(EXIT_CLEAN);
+}
+
+int  mouse_hook(int button, int x, int y, t_mlx *mlx)
+{
+  (void)mlx;
+  printf("%d\n", button);
+  printf("x :%d\n", x);
+  printf("y :%d\n", y);
+  return (1);
+}
+
 void  clean_mlx(t_mlx *mlx)
 {
     mlx_destroy_window(mlx->connection, mlx->window);

@@ -40,8 +40,7 @@ enum {
 	ON_MOUSEUP = 5,
 	ON_MOUSEMOVE = 6,
 	ON_EXPOSE = 12,
-	ON_DESTROY = 17,
-  ON_CLIENT_MESSAGE = 33,
+	DESTROY_NOTIFY = 17,
 };
 
 
@@ -55,6 +54,10 @@ int add_shade(double distance, int color);
 
 // HOOK
 int  keypress(int keycode, t_mlx *mlx);
+int  mouse_hook(int button, int x, int y, t_mlx *mlx);
+int close_window(t_mlx *mlx);
 void  clean_mlx(t_mlx *mlx);
 
+void   fractol (t_mlx *mlx);
+void   put_pixel(t_img *img, int x, int y, int color);
 #endif

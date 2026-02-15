@@ -57,8 +57,10 @@ int main()
   t_mlx   *mlx;
 
   mlx = init_deps();
+  fractol(mlx);
+  mlx_put_image_to_window(mlx->connection, mlx->window, mlx->img_ptr->img, 0, 0);
+  mlx_hook(mlx->window, DESTROY_NOTIFY, 0, close_window, mlx);
   mlx_key_hook(mlx->window, keypress, mlx);
-  //TODO: HOW to handle client message
-  mlx_hook(mlx->window, ON_CLIENT_MESSAGE, 0, handle_client, mlx);
+  mlx_mouse_hook(mlx->window, mouse_hook, mlx);
   mlx_loop(mlx->connection);
 }
