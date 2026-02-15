@@ -10,13 +10,19 @@
 # define HEIGHT 800
 # define MALLOC_ERROR 1
 # define ESC_CODE 65307
+# define MAX_ITERATION 50
 
 #define EXIT_CLEAN 0
 #define EXIT_ERROR 1
 
+typedef struct s_point {
+  int x;
+  int y;
+}             t_point;
+
 typedef struct s_complex {
   double real; //x
-  double i;    //y
+  double im;    //y
 } t_complex;
 
 typedef struct s_img{
@@ -58,6 +64,8 @@ int  mouse_hook(int button, int x, int y, t_mlx *mlx);
 int close_window(t_mlx *mlx);
 void  clean_mlx(t_mlx *mlx);
 
-void   fractol (t_mlx *mlx);
+void fractol(t_mlx *mlx, int px, int py);
 void   put_pixel(t_img *img, int x, int y, int color);
+void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, int, int));
+double get_complex_position(int x);
 #endif

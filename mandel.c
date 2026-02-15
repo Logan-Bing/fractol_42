@@ -1,32 +1,53 @@
 #include "header.h"
 
-// Valeur appartenant a l'intervalle imin, imax
-void fractol (t_mlx *mlx)
+double get_complex_position(int x)
 {
-  int px = 0;
-  int py = 0;
-  double xtemp;
-  int iteration;
-  int max_iteration = 50;
+  double c;
 
-  while (px < WIDTH && py < HEIGHT)
+  c = -2.0 + ((double)x / (WIDTH - 1)) * (0.47 - (-2.00));
+  return c;
+}
+
+// Valeur appartenant a l'intervalle imin, imax
+void fractol(t_mlx *mlx, int px, int py)
+{
+  t_complex z;
+  t_complex c;
+  double    xtemp;
+  int       iteration;
+
+  c.real = -2.0 + ((double)px / (WIDTH - 1)) * (0.47 - (-2.00));
+  c.im = 1.12 - ((double)py / (HEIGHT - 1)) * (1.12 - (-1.12));
+  z.real = 0.0;
+  z.im = 0.0;
+  iteration = 0;
+  while (iteration < MAX_ITERATION)
   {
-    double x = -2.00 + (double)px / WIDTH * (0.47 - (-2.00));
-    double y = 1.12 - (double)py / HEIGHT * (1.12 - (-1.12));
-    iteration = 0;
-    xtemp = 0.0;
-    while ( x*x + y*y < 2.0*2.0 && iteration < max_iteration)
+    if (z.real * z.real + z.im * z.im > 2*2)
+        break;
+    xtemp = z.real * z.real - z.im * z.im + c.real;
+    z.im = 2 * z.real * z.im + c.im;
+    z.real = xtemp;
+    iteration++;
+  }
+  if (iteration == MAX_ITERATION)
+    put_pixel(mlx->img_ptr, px, py, 0xFFFFFFFF);
+}
+
+void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, int, int))
+{
+  t_point point;
+
+  point.y = 0;
+  point.x = 0;
+  while (point.y < HEIGHT)
+  {
+    point.x = 0;
+    while (point.x < WIDTH)
     {
-      xtemp += x*x + x;
-      y += 2*x*y + y;
-      x += xtemp;
-      iteration++;
+      f(mlx, point.x, point.y);
+      point.x++;
     }
-    if (iteration >= max_iteration)
-    {
-      put_pixel(mlx->img_ptr, px, py, 0xFFFFFFFF);
-    }
-    py++;
-    px++;
+    point.y++;
   }
 }

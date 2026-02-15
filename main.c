@@ -57,7 +57,7 @@ int main()
   t_mlx   *mlx;
 
   mlx = init_deps();
-  fractol(mlx);
+  for_each_pixel(mlx, &fractol);
   mlx_put_image_to_window(mlx->connection, mlx->window, mlx->img_ptr->img, 0, 0);
   mlx_hook(mlx->window, DESTROY_NOTIFY, 0, close_window, mlx);
   mlx_key_hook(mlx->window, keypress, mlx);
