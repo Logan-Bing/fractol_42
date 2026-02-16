@@ -16,14 +16,11 @@
 #define EXIT_ERROR 1
 
 typedef struct s_point {
-  int x;
-  int y;
-}             t_point;
-
-typedef struct s_complex {
-  double real; //x
-  double im;    //y
-} t_complex;
+  int    x;
+  int    y;
+  double x_com; //x
+  double y_com;    //y
+} t_point;
 
 typedef struct s_img{
 	void	*img; // pointeur MLX vers l'image
@@ -58,14 +55,20 @@ int get_b(int trgb);
 int	create_trgb(int t, int r, int g, int b);
 int add_shade(double distance, int color);
 
+// MAIN
+void   put_pixel(t_img *img, int x, int y, int color);
+
 // HOOK
 int  keypress(int keycode, t_mlx *mlx);
 int  mouse_hook(int button, int x, int y, t_mlx *mlx);
 int close_window(t_mlx *mlx);
 void  clean_mlx(t_mlx *mlx);
 
-void fractol(t_mlx *mlx, int px, int py);
-void   put_pixel(t_img *img, int x, int y, int color);
-void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, int, int));
-double get_complex_position(int x);
+void fractol(t_mlx *mlx, t_point pixel);
+void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, t_point point));
+double y_to_complex_plan(int py, int height, double min_y, double max_y);
+double x_to_complex_plan(int px, int width, double min_x, double max_x);
+void  get_color(int total_iteration);
+int get_total_iteration(int histogram[MAX_ITERATION]);
+void  build_histogram(int iteration_count[WIDTH][HEIGHT]);
 #endif
