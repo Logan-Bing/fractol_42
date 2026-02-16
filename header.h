@@ -4,10 +4,11 @@
 #include <mlx.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 # define WIDTH 800
-# define HEIGHT 800
+# define HEIGHT 800 
 # define MALLOC_ERROR 1
 # define ESC_CODE 65307
 # define MAX_ITERATION 50
@@ -18,6 +19,7 @@
 typedef struct s_point {
   int    x;
   int    y;
+  int    **iteration_count;
   double x_com; //x
   double y_com;    //y
 } t_point;
@@ -64,11 +66,16 @@ int  mouse_hook(int button, int x, int y, t_mlx *mlx);
 int close_window(t_mlx *mlx);
 void  clean_mlx(t_mlx *mlx);
 
-void fractol(t_mlx *mlx, t_point pixel);
-void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, t_point point));
+// UTILS
 double y_to_complex_plan(int py, int height, double min_y, double max_y);
 double x_to_complex_plan(int px, int width, double min_x, double max_x);
-void  get_color(int total_iteration);
 int get_total_iteration(int histogram[MAX_ITERATION]);
-void  build_histogram(int iteration_count[WIDTH][HEIGHT]);
+
+// COLOR ALGO
+void  get_color(int total_iteration, int **iteration_count, int histogram[MAX_ITERATION], t_mlx *mlx);
+void  build_histogram(int **iteration_count, t_mlx *mlx);
+
+void fractol(t_mlx *mlx, t_point pixel);
+void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, t_point point));
+void print_2d_tab(int **tab);
 #endif

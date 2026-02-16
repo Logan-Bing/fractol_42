@@ -1,21 +1,10 @@
 #include "header.h"
 
-double x_to_complex_plan(int px, int width, double min_x, double max_x)
-{
-  return min_x + ((double)px / (width - 1)) * (max_x - min_x);
-}
-
-double y_to_complex_plan(int py, int height, double min_y, double max_y)
-{
-  return max_y - ((double)py / (height - 1)) * (max_y - min_y);
-}
-
 // Valeur appartenant a l'intervalle imin, imax
 void fractol(t_mlx *mlx, t_point pixel)
 {
   t_point z;
   t_point temp;
-  // int  iteration_count[WIDTH][HEIGHT];
   int     iteration;
 
   z.x_com = 0.0;
@@ -27,66 +16,44 @@ void fractol(t_mlx *mlx, t_point pixel)
   pixel.y_com = y_to_complex_plan(pixel.y, HEIGHT, -1.12, 1.12);
   while (iteration < MAX_ITERATION)
   {
-    if (temp.x_com + temp.y_com > 2*2)
-        break;
     temp.x_com = z.x_com * z.x_com;
     temp.y_com = z.y_com * z.y_com;
+    if (temp.x_com + temp.y_com > 4.0)
+        break;
     z.y_com = 2 * z.x_com * z.y_com + pixel.y_com;
     z.x_com = temp.x_com - temp.y_com + pixel.x_com;
     iteration++;
   }
-  if (iteration == MAX_ITERATION)
-    put_pixel(mlx->img_ptr, pixel.x, pixel.y, 0xFFFFFFFF);
-  // iteration_count[pixel.x][pixel.y] = iteration;
-  // if (pixel.y == HEIGHT -1 && pixel.x == WIDTH -1)
-  //   build_histogram(iteration_count);
-}
-
-int get_total_iteration(int histogram[MAX_ITERATION])
-{
-  int total = 0;
-  int i = 0;
-
-  while (i < MAX_ITERATION)
+  pixel.iteration_count[pixel.x][pixel.y] = iteration;
+  if (pixel.y == HEIGHT -1 && pixel.x == WIDTH -1)
   {
-    total += histogram[i];
-    i++;
+    // print_2d_tab(pixel.iteration_count);
+    build_histogram(pixel.iteration_count, mlx);
   }
-  return (total);
 }
 
-void  build_histogram(int iteration_count[WIDTH][HEIGHT])
+void print_2d_tab(int **tab)
 {
-  int x;
-  int y;
-  int i;
-  int histogram[MAX_ITERATION];
-
-  x = 0;
-  i = 0;
-  while (x < WIDTH)
-  {
-    y = 0;
-    while (y < HEIGHT)
-    {
-      i = iteration_count[x][y];
-      histogram[i]++;
-      y++;
+  for (int i = 0;  i < WIDTH; i++){
+    for (int j = 0; j < HEIGHT; j++){
+      printf("x :[%d] | j: [%d] | value: [%d]\n", i, j, tab[i][j]);
     }
-    x++;
   }
-  get_color(get_total_iteration(histogram));
-}
-
-void  get_color(int total_iteration)
-{
-  printf("%d\n", total_iteration);
 }
 
 void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, t_point point))
 {
   t_point point;
 
+  point.iteration_count = malloc(sizeof(int *) * WIDTH);
+  if (!point.iteration_count)
+    exit(1);
+  for (int i = 0; i < WIDTH; i++){
+    point.iteration_count[i] = malloc(sizeof(int) * HEIGHT);
+    memset(point.iteration_count[i], 0, sizeof(int) * HEIGHT);
+    if (!point.iteration_count[i])
+      exit(1);
+  }
   point.y = 0;
   while (point.y < HEIGHT)
   {
@@ -98,4 +65,8 @@ void  for_each_pixel(t_mlx *mlx, void (*f)(t_mlx *, t_point point))
     }
     point.y++;
   }
+  for (int i = 0; i < WIDTH; i++) {
+    free(point.iteration_count[i]);
+  } 
+  free(point.iteration_count);
 }
