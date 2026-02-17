@@ -1,7 +1,6 @@
 #include "header.h"
 
-int palette_blue_red(double hue)
-{
+int palette_blue_red(double hue) {
   int r;
   int b;
   int g;
@@ -18,30 +17,26 @@ int palette_blue_red(double hue)
   return (r << 16 | g << 8 | b);
 }
 
-int palette_grey(double hue)
-{
+int palette_grey(double hue) {
   int c;
 
   c = (int)(255.0 * hue);
   return (c << 16) | (c << 8) | c;
 }
 
-void  build_histogram(int **iteration_count, t_mlx *mlx)
-{
+void build_histogram(int **iteration_count, t_mlx *mlx) {
   t_point point;
-  int     total_iteration;
-  int     i;
-  int     histogram[MAX_ITERATION];
+  int total_iteration;
+  int i;
+  int histogram[MAX_ITERATION];
 
-  //TODO: Use libft memeset
+  // TODO: Use libft memeset
   memset(histogram, 0, sizeof(int) * MAX_ITERATION);
   point.x = 0;
   i = 0;
-  while (point.x < WIDTH)
-  {
+  while (point.x < WIDTH) {
     point.y = 0;
-    while (point.y < HEIGHT)
-    {
+    while (point.y < HEIGHT) {
       i = iteration_count[point.x][point.y];
       histogram[i]++;
       point.y++;
@@ -52,25 +47,22 @@ void  build_histogram(int **iteration_count, t_mlx *mlx)
   get_color(total_iteration, iteration_count, histogram, mlx);
 }
 
-void  get_color(int total_iteration, int **iteration_count, int histogram[MAX_ITERATION], t_mlx *mlx)
-{
-  double  hue;
-  int     iteration;
-  int     i;
-  int     color;
+void get_color(int total_iteration, int **iteration_count,
+               int histogram[MAX_ITERATION], t_mlx *mlx) {
+  double hue;
+  int iteration;
+  int i;
+  int color;
   t_point point;
 
   point.x = 0;
-  while (point.x < WIDTH)
-  {
+  while (point.x < WIDTH) {
     point.y = 0;
-    while (point.y < HEIGHT)
-    {
+    while (point.y < HEIGHT) {
       iteration = iteration_count[point.x][point.y];
       i = 0;
       hue = 0.0;
-      while (i < iteration)
-      {
+      while (i < iteration) {
         hue += histogram[i] / (double)total_iteration;
         i++;
       }
