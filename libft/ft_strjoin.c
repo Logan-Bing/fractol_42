@@ -30,7 +30,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (buffer);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	char prefix[] = "hel";
 // 	char suffix[] = "     wdokwopdkoales gens";

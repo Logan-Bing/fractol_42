@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (new_node);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	t_list *new_node = ft_lstnew("hello les gens");
 // 	printf("%s", (char *)new_node->content);

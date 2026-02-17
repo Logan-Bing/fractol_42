@@ -28,7 +28,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (s1_casted[i] - s2_casted[i]);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	size_t n = 4;
 

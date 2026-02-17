@@ -27,7 +27,7 @@ static long int	get_allocate_size(long int ln)
 	while (ln > 0)
 	{
 		ln = ln / 10;
-		size ++;
+		size++;
 	}
 	return (size);
 }
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 	return (buffer);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	char *res = ft_itoa(-323);
 // 	printf("%s", res);

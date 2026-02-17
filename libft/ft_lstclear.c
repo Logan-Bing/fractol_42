@@ -33,7 +33,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	*lst = NULL;
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	char *first_content = strdup("node 1");
 // 	char *second_content = strdup("node 1");

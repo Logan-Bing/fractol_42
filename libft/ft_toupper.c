@@ -21,13 +21,16 @@ int	ft_toupper(int c)
 	return (c);
 }
 /*
-int	main()
+int	main(void)
 {
-	unsigned char sentence[255];
+	unsigned char	sentence[255];
+	int				i;
+	int				my_res;
+	int				real_res;
 
-	int i = 0;
-	int my_res = 0;
-	int real_res = 0;
+	i = 0;
+	my_res = 0;
+	real_res = 0;
 	printf("=== LA MIENNE ===\n");
 	while (i < 255)
 	{
@@ -38,7 +41,7 @@ int	main()
 		{
 			printf("[%d]", my_res);
 			printf("[%d] === FALSE", real_res);
-		} else 
+		} else
 		{
 			printf("[%d]", my_res);
 			printf("[%d] === OK", real_res);

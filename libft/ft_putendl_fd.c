@@ -18,9 +18,11 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putchar_fd('\n', fd);
 }
 /*
-int	main()
+int	main(void)
 {
-	int fd = open("test.txt", O_WRONLY);
+	int	fd;
+
+	fd = open("test.txt", O_WRONLY);
 	ft_putendl_fd("hello les gens", fd);
 }
 */

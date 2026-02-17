@@ -29,9 +29,10 @@ void	*ft_memset(void *pointer, int value, size_t count)
 /*
 #define MAX_LINE 6
 #define MAX_COLUMN 4
-int main()
+
+int	main(void)
 {
-	int	testCaseProto[MAX_LINE][MAX_COLUMN] = 
+	int	testCaseProto[MAX_LINE][MAX_COLUMN] =
 	{
 		{10, 20, 32, 40},
 		{32, 4, -23, 10},
@@ -40,8 +41,7 @@ int main()
 		{32222, 4222, -22223, 1220},
 		{-32, -4, -23, -10},
 	};
-
-	int	testCaseReal[MAX_LINE][MAX_COLUMN] = 
+	int	testCaseReal[MAX_LINE][MAX_COLUMN] =
 	{
 		{10, 20, 32, 40},
 		{32, 4, -23, 10},
@@ -50,7 +50,6 @@ int main()
 		{32222, 4222, -22223, 1220},
 		{-32, -4, -23, -10},
 	};
-
 	int valueTab[] = {0, 3, 4 ,6, 7, 9}
 }
-*/ 
+*/

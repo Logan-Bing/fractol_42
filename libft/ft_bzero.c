@@ -28,7 +28,7 @@ void	ft_bzero(void *s, size_t n)
 /*
 void	print_tab(int *tab, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -38,9 +38,9 @@ void	print_tab(int *tab, int size)
 	}
 	printf("\n");
 }
-int	main()
+int	main(void)
 {
-	char buffer[10];
+	char	buffer[10];
 
 	ft_bzero(buffer, 5);
 	printf("=== La mienne ===\n");

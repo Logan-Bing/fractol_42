@@ -14,8 +14,8 @@
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-	size_t			size;
-	void			*buffer;
+	size_t	size;
+	void	*buffer;
 
 	size = elementCount * elementSize;
 	if (elementCount != 0 && size / elementCount != elementSize)
@@ -27,8 +27,10 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 	return (buffer);
 }
 /*
-int	main()
+int	main(void)
 {
+	int	*test;
+
 	// int test[] = {10, 20, 5, 1, 3};
 	// int *real_tab;
 	// int *my_tab;
@@ -38,12 +40,11 @@ int	main()
 	// 	int cmp = memcmp(real_tab, my_tab, sizeof(int) * test[i]);
 	// 	if (cmp != 0)
 	// 		printf("False");
-	// 	else 
+	// 	else
 	// 		printf("True");
 	// 	printf("\n");
 	// }
-
-	int *test = calloc(-1, 0);
+	test = calloc(-1, 0);
 	printf("%p\n", test);
 	free(test);
 	printf("%p", test);

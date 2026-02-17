@@ -37,37 +37,36 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 
 /*
-int	main()
+int	main(void)
 {
-	char *sentence = "hello les amis ca va";
-	char *word = "\0";
-	size_t len = -14;
-	char *res = ft_strnstr(sentence, word, len);
-	char *res2 = strnstr(sentence, word, len);
-	
+	char	*sentence;
+	char	*word;
+	size_t	len;
+	char	*res;
+	char	*res2;
+
+	sentence = "hello les amis ca va";
+	word = "\0";
+	len = -14;
+	res = ft_strnstr(sentence, word, len);
+	res2 = strnstr(sentence, word, len);
 	printf("RES = %s\n", res);
 	printf("RES2 = %s\n", res2);
-	
-
-
 	// char *tab[] = {
 	// 	"coucou les salopes",
 	// 	"coucou salopes",
 	// 	"",
 	// 	"salopes",
 	// };
-
 	// char *to_find[] = {
 	// 	"les",
 	// 	NULL,
 	// 	"salopes",
 	// 	"zob",
 	// };
-
 	// int int_arr[] = {
 	// 	3 , 6, 14, -12, 0
 	// };
-
 	// char *res;
 	// int i;
 	// int j;

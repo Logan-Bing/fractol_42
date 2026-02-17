@@ -38,7 +38,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 // 	}
 // }
 
-// int	main()
+// int	main(void)
 // {
 // 	t_list *list = NULL;
 // 	ft_lstadd_back(&list, ft_lstnew(strdup("node_1")));

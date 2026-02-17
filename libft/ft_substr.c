@@ -38,10 +38,11 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	return (buffer);
 }
 /*
-int main(void)
+int	main(void)
 {
-	
-	char *res = ft_substr("tripouille", 1, 1);
+	char	*res;
+
+	res = ft_substr("tripouille", 1, 1);
 	printf("%s", res);
 	free(res);
 }

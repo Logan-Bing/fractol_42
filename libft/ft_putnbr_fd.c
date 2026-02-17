@@ -30,8 +30,8 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	ft_putchar_fd(n % 10 + '0', fd);
 }
-// int main() 
-// { 
+// int main()
+// {
 // 	// fd = open("tripouille", O_RDWR | O_CREAT, 0777);
 // 	// ft_putnbr_fd(INT_MIN, fd);
 // 	// lseek(fd, SEEK_SET, 0);

@@ -29,7 +29,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 // 	if (index % 2 == 0)
 // 		*c = 'a';
 // }
-// int	main()
+// int	main(void)
 // {
 // 	char test[] = "hello les gens";
 // 	printf("%s\n", test);

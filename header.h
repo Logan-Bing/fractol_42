@@ -1,6 +1,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include "libft/libft.h"
 #include "mlx_linux/mlx.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,6 +38,7 @@ typedef struct s_mlx_constructor {
   void *connection;
   void *window;
   t_img *img_ptr;
+  void *set_func;
 } t_mlx;
 
 enum {
@@ -59,7 +61,11 @@ int add_shade(double distance, int color);
 
 // MAIN
 void put_pixel(t_img *img, int x, int y, int color);
+
+// MLX_CONFIG
 void init_mlx_image(t_mlx *mlx);
+t_mlx *init_mlx_connection(void);
+t_mlx *init_deps(void);
 
 // HOOK
 int keypress(int keycode, t_mlx *mlx);
@@ -78,9 +84,11 @@ void get_color(int total_iteration, int **iteration_count,
                int histogram[MAX_ITERATION], t_mlx *mlx);
 void build_histogram(int **iteration_count, t_mlx *mlx);
 
-void fractol(t_mlx *mlx, t_point pixel);
-void for_each_pixel(t_mlx *mlx, double scale,
-                    void (*f)(t_mlx *, t_point point));
+void fractol(t_mlx *mlx, t_point pixel, t_point julia_set,
+             void (*f)(t_point *, t_point *, t_point));
+void for_each_pixel(t_mlx *mlx, double scale);
+void init_julia_set(t_point *z, t_point *pixel, t_point julia_set);
+void init_mandelbrot_set(t_point *z, t_point *pixel, t_point julia_set);
 void print_2d_tab(int **tab);
 int **init_iteration_count(void);
 #endif

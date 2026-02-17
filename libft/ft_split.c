@@ -106,7 +106,7 @@ char	**ft_split(const char *s1, char c)
 	return (buffer);
 }
 
-// int	main() {
+// int	main(void) {
 // 	char **tab = ft_split(NULL, ' ');
 // 	free(tab);
 // }

@@ -26,7 +26,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (current_node);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	t_list *list = NULL;
 // 	t_list *node_1 = ft_lstnew("node 1");

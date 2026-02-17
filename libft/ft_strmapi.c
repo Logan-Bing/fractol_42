@@ -34,10 +34,10 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 // char	change_char(unsigned int index, char c)
 // {
 // 	if (index % 2 == 0)
-// 		return c;
-// 	return 'a';
+// 		return (c);
+// 	return ('a');
 // }
-// int	main ()
+// int	main (void)
 // {
 // 	char *test = "hello les gens";
 // 	char *res = ft_strmapi(test, change_char);

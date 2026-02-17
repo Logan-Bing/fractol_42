@@ -26,7 +26,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-// int	main()
+// int	main(void)
 // {
 // 	char *first_content = strdup("node 1");
 // 	char *second_content = strdup("node 2");

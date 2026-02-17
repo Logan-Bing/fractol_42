@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_memmove( void *dest, const void *src, size_t size )
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	unsigned char	*dest_casted;
 	unsigned char	*src_casted;
@@ -33,8 +33,8 @@ void	*ft_memmove( void *dest, const void *src, size_t size )
 	}
 	return (dest);
 }
-//  int main() 
-// { 
+//  int main()
+// {
 // 	// fd = open("tripouille", O_RDWR | O_CREAT, 0777);
 // 	// ft_putnbr_fd(INT_MIN, fd);
 // 	// lseek(fd, SEEK_SET, 0);

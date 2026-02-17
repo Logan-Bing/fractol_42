@@ -28,7 +28,7 @@ static int	is_sep(char c, const char *set)
 
 static int	get_starting_index(const char *s1, const char *set)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && is_sep(s1[i], set))
@@ -79,7 +79,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 /*
 int main ()
 {
-	char *res = ft_strtrim("abcdef", "abf");
+	char	*res;
+
+	res = ft_strtrim("abcdef", "abf");
 	printf("%s", res);
 }
 */

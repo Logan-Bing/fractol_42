@@ -32,13 +32,19 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 /*
 #define MAXSTR 6
 #define MAXLEN 1024
-int main()
+
+int	main(void)
 {
-	int i = 0;
-	int my_res = 0;
-	int real_res = 0;
-	char destProto[100];
-	char destReal[100];
+	int		i;
+	int		my_res;
+	int		real_res;
+	char	destProto[100];
+	char	destReal[100];
+	int		sizeTab[] = {5, 2, 0, 10, 20, -14};
+
+	i = 0;
+	my_res = 0;
+	real_res = 0;
 	char testCase[MAXSTR][MAXLEN] = {
 		"this is the first string",
 		"this is the second sting",
@@ -47,9 +53,6 @@ int main()
 		"42",
 		"weqeqweqweqweqweqweqweqeqweqeweqweqweqweqweqweqweqeqw",
 	};
-	
-	int sizeTab[] = {5, 2, 0, 10, 20, -14};
-
 	while (i < MAXSTR)
 	{
 		my_res = ft_strlcpy(destProto, testCase[i], sizeTab[i]);

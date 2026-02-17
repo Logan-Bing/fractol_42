@@ -36,5 +36,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // 	printf("%s\n", real_res);
 // }
 // memchr scan les n premiers bytes de l'adresse memoire s
-// pour trouver la premiere instance de c 
+// pour trouver la premiere instance de c
 // la zone en memoire pointer par s est consider comme un unsigned char

@@ -35,9 +35,14 @@ char	*ft_strrchr(const char *s, int c)
 /*
 #define MAX_STR 100
 #define MAX_LINE 5
-int	main()
+
+int	main(void)
 {
-	char testCase[MAX_LINE][MAX_STR] = 
+	char	*toFind;
+	char	*my_res;
+	char	*real_res;
+
+	char testCase[MAX_LINE][MAX_STR] =
 	{
 		"; aooko efefe",
 		" Vous ne passerez pas",
@@ -45,10 +50,8 @@ int	main()
 		"Trouv",
 		""
 	};
-	char *toFind = "; |v,";
-	char *my_res;
-	char *real_res;
-	for (int i = 0; i < MAX_LINE; i++) 
+	toFind = "; |v,";
+	for (int i = 0; i < MAX_LINE; i++)
 	{
 		my_res = ft_strrchr(testCase[i], toFind[i]);
 		real_res = strrchr(testCase[i], toFind[i]);

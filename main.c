@@ -1,4 +1,5 @@
 #include "header.h"
+#include "libft/ft_printf/ft_printf.h"
 
 void put_pixel(t_img *img, int x, int y, int color) {
   char *dst;
@@ -7,49 +8,32 @@ void put_pixel(t_img *img, int x, int y, int color) {
   *(unsigned int *)dst = color;
 }
 
-t_mlx *init_mlx_connection(void) {
-  t_mlx *mlx;
-
-  mlx = malloc(sizeof(t_mlx));
-  if (!mlx)
-    return (NULL);
-  mlx->connection = mlx_init();
-  if (!mlx->connection)
-    return (NULL);
-  mlx->window = mlx_new_window(mlx->connection, WIDTH, HEIGHT, "Fractol");
-  if (!mlx->window)
-    return (NULL);
-  return (mlx);
+void display_available_params(void) {
+  ft_printf("---PARAMS---\n");
+  ft_printf("- ./mandelbrot\n");
+  ft_printf("- ./julia -set\n");
+  ft_printf("exemple of set: [0.3 0.5] ");
 }
 
-// TODO: Need to return an errror if malloc failded
-void init_mlx_image(t_mlx *mlx) {
-  t_img *img;
-
-  img = malloc(sizeof(t_img));
-  if (!img)
-    return;
-  mlx->img_ptr = img;
-  img->img = mlx_new_image(mlx->connection, WIDTH, HEIGHT);
-  img->img_pixel =
-      mlx_get_data_addr(img->img, &img->bpp, &img->line_length, &img->endian);
+void *parse_args(int argc, char *argv[]) {
+  if (argc < 2 || argc > 3) {
+    printf("Need to respect the following format\n");
+    display_available_params();
+    exit(0);
+  } else if (argc == 3) {
+    // TODO: parse for julia
+  }
+  return (&init_mandelbrot_set);
+  (void)argv;
 }
 
-t_mlx *init_deps(void) {
+int main(int argc, char *argv[]) {
   t_mlx *mlx;
 
-  mlx = init_mlx_connection();
-  if (!mlx)
-    exit(EXIT_ERROR);
-  init_mlx_image(mlx);
-  return (mlx);
-}
-
-int main() {
-  t_mlx *mlx;
-
+  parse_args(argc, argv);
   mlx = init_deps();
-  for_each_pixel(mlx, 0.0, &fractol);
+  mlx->set_func = &init_mandelbrot_set;
+  for_each_pixel(mlx, 0.0);
   mlx_put_image_to_window(mlx->connection, mlx->window, mlx->img_ptr->img, 0,
                           0);
   mlx_hook(mlx->window, DESTROY_NOTIFY, 0, close_window, mlx);

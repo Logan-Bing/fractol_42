@@ -33,7 +33,7 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-// int	main()
+// int	main(void)
 // {
 // 	char s[] = { (char)200, 0 };
 // 	printf("%s\n", ft_strchr(s, 200));

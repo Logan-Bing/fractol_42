@@ -23,7 +23,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	t_list *node = ft_lstnew("hello les gens");
 // 	printf("%s\n", (char *)node->content);

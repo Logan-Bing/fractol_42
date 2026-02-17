@@ -24,11 +24,16 @@ int	ft_strlen(const char *str)
 /*
 #define MAXSTR 10
 #define MAXLEN 1024
-int main()
+
+int	main(void)
 {
-	int i = 0;
-	int my_res = 0;
-	int real_res = 0;
+	int	i;
+	int	my_res;
+	int	real_res;
+
+	i = 0;
+	my_res = 0;
+	real_res = 0;
 	char testCase[MAXSTR][MAXLEN] = {
 		"this is the first string",
 		"this is the second sting",
@@ -37,7 +42,6 @@ int main()
 		"42",
 		"weqeqweqweqweqweqweqweqeqweqeweqweqweqweqweqweqweqeqw",
 	};
-
 	while (i < 6)
 	{
 		my_res = ft_strlen(testCase[i]);
@@ -46,7 +50,7 @@ int main()
 		{
 			printf("[%d]", my_res);
 			printf("[%d] === FALSE\t", real_res);
-		} else 
+		} else
 		{
 			printf("[%d]", my_res);
 			printf("[%d] === OK\t", real_res);

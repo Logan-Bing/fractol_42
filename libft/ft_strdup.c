@@ -32,10 +32,13 @@ char	*ft_strdup(const char *str)
 	return (buffer);
 }
 /*
-int	main()
+int	main(void)
 {
-	char *word = "hello";
-	char *res = ft_strdup(word);
+	char	*word;
+	char	*res;
+
+	word = "hello";
+	res = ft_strdup(word);
 	printf("%s\n", res);
 }
 */

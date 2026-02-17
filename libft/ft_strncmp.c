@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-// int	main()
+// int	main(void)
 // {
 // 	size_t size = 1;
 // 	char s1[] = { (char)200, 0 };

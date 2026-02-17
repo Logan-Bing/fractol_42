@@ -18,13 +18,16 @@ int	ft_isprint(int c)
 }
 
 /*
-int main() 
+int	main(void)
 {
-	unsigned char sentence[255];
+	unsigned char	sentence[255];
+	int				i;
+	int				my_res;
+	int				real_res;
 
-	int i = 0;
-	int my_res = 0;
-	int real_res = 0;
+	i = 0;
+	my_res = 0;
+	real_res = 0;
 	while (i < 255)
 	{
 		sentence[i] = i;
@@ -35,7 +38,7 @@ int main()
 			printf("[%d]", my_res);
 			printf("[%d] === FALSE\t", real_res);
 			printf("value : %c [%d]", sentence[i], i);
-		} else 
+		} else
 		{
 			printf("[%d]", my_res);
 			printf("[%d] === OK\t", real_res);
