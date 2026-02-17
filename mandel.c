@@ -1,6 +1,8 @@
 #include "header.h"
 
 // Valeur appartenant a l'intervalle imin, imax
+// TODO: Passer une fonction, qui va faire l'init de mandle ou julia selon le
+// parsing
 void fractol(t_mlx *mlx, t_point pixel) {
   t_point z;
   t_point temp;
