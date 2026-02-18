@@ -39,6 +39,8 @@ typedef struct s_mlx_constructor {
   void *window;
   t_img *img_ptr;
   void *set_func;
+  double julia_x;
+  double julia_y;
 } t_mlx;
 
 enum {
@@ -84,11 +86,11 @@ void get_color(int total_iteration, int **iteration_count,
                int histogram[MAX_ITERATION], t_mlx *mlx);
 void build_histogram(int **iteration_count, t_mlx *mlx);
 
-void fractol(t_mlx *mlx, t_point pixel, t_point julia_set,
-             void (*f)(t_point *, t_point *, t_point));
+void fractol(t_mlx *mlx, t_point pixel,
+             void (*f)(t_point *, t_point *, t_mlx *));
 void for_each_pixel(t_mlx *mlx, double scale);
-void init_julia_set(t_point *z, t_point *pixel, t_point julia_set);
-void init_mandelbrot_set(t_point *z, t_point *pixel, t_point julia_set);
+void init_julia_set(t_point *z, t_point *pixel, t_mlx *mlx);
+void init_mandelbrot_set(t_point *z, t_point *pixel, t_mlx *mlx);
 void print_2d_tab(int **tab);
 int **init_iteration_count(void);
 #endif
