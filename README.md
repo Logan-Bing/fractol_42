@@ -6,7 +6,7 @@
 <!-- By: llugez <llugez@student.42.fr>              +#+  +:+       +#+       -->
 <!--                                              +#+#+#+#+#+   +#+          -->
 <!-- Created: 2026/02/21 19:32:49 by llugez            #+#    #+#            -->
-<!-- Updated: 2026/02/21 19:48:32 by llugez           ###   ########.fr      -->
+<!-- Updated: 2026/02/21 19:52:08 by llugez           ###   ########.fr      -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
@@ -17,7 +17,7 @@
 ## Description
 
 Fractol project asks to reproduce a fractal, but what is a fractal ?\
-*In mathematics, a fractal is a geometric shape containing detailed structure at arbitrarily small scales, usually having a fractal dimension strictly exceeding the topological dimension.*[wikipedia](https://en.wikipedia.org/wiki/Fractal)\
+*In mathematics, a fractal is a geometric shape containing detailed structure at arbitrarily small scales, usually having a fractal dimension strictly exceeding the topological dimension.*[wikipedia](https://en.wikipedia.org/wiki/Fractal)
 
 To simplify that definition for people who are not comfortable with math like me...\
 A shape that repeats itself endlessly when you zoom in on it. No matter how much you enlarge it, you continue to see similar patterns.
