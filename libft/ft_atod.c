@@ -6,7 +6,7 @@
 /*   By: llugez <llugez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 17:28:17 by llugez            #+#    #+#             */
-/*   Updated: 2026/02/21 18:11:11 by llugez           ###   ########.fr       */
+/*   Updated: 2026/02/21 19:29:35 by llugez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ double	check_entry(char *str)
 
 	i = 0;
 	dot_count = 0;
-	if (!*str || !ft_isdigit(*str))
+	if (!*str)
 		return (NAN);
 	while (str[i])
 	{
