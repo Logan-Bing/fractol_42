@@ -2,7 +2,6 @@ NAME = fractol
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
-			 color.c \
 			 hook.c \
 			 mandel.c \
 			 utils.c \
